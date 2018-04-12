@@ -1,3 +1,1 @@
-pipeline {
-    build.docker
-}
+build.docker
