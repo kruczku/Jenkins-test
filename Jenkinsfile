@@ -1,10 +1,9 @@
-pipeline {
-      agent {
-        docker {
-                image 'wingedkiwi/jenkins-slave'
-            }
-      }
-      stages {
+#!/usr/bin/env groovy
+
+def docker(message) {
+    pipeline {
+        agent { label 'jenkins-slave-ec2' }
+        stages {
             stage("docker build") {
                 steps {
                     sh 'echo hejka'
@@ -13,8 +12,9 @@ pipeline {
             }
             stage ('test') {
                 steps {
-                    sh 'docker run --rm hej-test'
+                    docker run --rm hej-test
                 }
             }
       }
     }
+ }
