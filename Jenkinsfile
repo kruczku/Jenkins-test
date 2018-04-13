@@ -13,7 +13,7 @@ pipeline {
             }
             stage ('test') {
                 steps {
-                    docker run --rm hej-test
+                    sh 'docker run --rm hej-test'
                 }
             }
       }
